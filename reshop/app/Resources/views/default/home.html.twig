@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+        <h4 align="center">Hi ::: {{ app.user.username }}</h4>
+    <u class="col-md-12">
+        <li><a href="/change">Change pass</a></li>
+        <li><a href="/logout">Logout</a></li>
+        <li><a href="/new-product">New product</a></li>
+        <li><a href="/load">Load product</a></li>
+    </u>
+
+
+    <div class="col-md-12 table-responsive">
+        <table class="table">
+            <thead>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Details</th>
+                <th>Status</th>
+                <th>Cate</th>
+                <th>Diameter</th>
+            </thead>
+            <tbody>
+            {% for i in item %}
+                <tr>
+                    <td>{{ i.productid }}</td>
+                    <td>{{ i.name }}</td>
+                    <td>{{ i.details }}</td>
+                    <td>{{ i.status != 0 ? i.status : 0 }}</td>
+                    <td>{{ i.cateid }}</td>
+                    <td>{{ i.diameter }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+
+
+{% endblock %}

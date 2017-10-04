@@ -3,6 +3,8 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * Product
@@ -15,6 +17,9 @@ class Product
     /**
      * @var string
      *
+     * *@Assert\NotBlank(
+     *     message="Name not blank"
+     * )
      * @ORM\Column(name="name", type="string", length=255, nullable=true)
      */
     private $name;
@@ -51,7 +56,9 @@ class Product
 
     /**
      * @var \AppBundle\Entity\Cate
-     *
+     ** *@Assert\NotBlank(
+     *     message="Cate not blank"
+     * )
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Cate")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="cateId", referencedColumnName="cateId")

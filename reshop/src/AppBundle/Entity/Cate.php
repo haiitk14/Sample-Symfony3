@@ -60,6 +60,11 @@ class Cate
         $this->cateid = $cateid;
     }
 
+    public function __toString()
+    {
+        return $this->name;
+    }
+
 
 }
 
